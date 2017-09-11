@@ -17,7 +17,6 @@
     ~/.config/alacritty: alacritty
     ~/.config/libinput-gestures.conf: libinput-gestures.conf
     ~/.config/compton.conf: compton.conf
-    ~/.oh-my-zsh: oh-my-zsh
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
     ~/.vimrc: vimrc
