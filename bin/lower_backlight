@@ -1,0 +1,15 @@
+#!/bin/bash
+
+light -U 10
+
+icon=""
+TIMEOUT=20
+FILE=/tmp/.backlight
+ID=$(cat $FILE)
+MSG="$icon $(query_backlight)"
+if [ $ID -gt "0" ]
+then
+	dunstify -t $TIMEOUT -r $ID "$MSG"
+else
+	dunstify -t $TIMEOUT -p "$MSG" > $FILE
+fi

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+b=$(light)
+
+printf '%.*f\n' 0 $b

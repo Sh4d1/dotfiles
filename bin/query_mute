@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ $(pactl list sinks | grep Mute | cut -d ':' -f2) == " no" ]]; then
+	echo false
+else
+	echo true
+fi

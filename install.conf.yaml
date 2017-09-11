@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.zsh: zsh
+    ~/.zshrc: zshrc
+    ~/.Xresources: Xresources
+    ~/.tmux: tmux
+    ~/.config/sxhkd: sxhkd
+    ~/.config/polybar: polybar
+    ~/.config/dunst: dunst
+    ~/.config/bspwm: bspwm
+    ~/.config/alacritty: alacritty
+    ~/.config/libinput-gestures.conf: libinput-gestures.conf
+    ~/.config/compton.conf: compton.conf
+    ~/.oh-my-zsh: oh-my-zsh
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/bin: bin
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$1" == "stop" ]; then
+	sudo stop_vpn
+elif [ -z "$1" ]; then
+	echo "Which vpn ?"
+elif [ "$1" == "ensimag" ]; then
+	vpn stop
+	sudo vpnc ensimag
+else
+	vpn stop
+	FILE="/home/patrik/etc/openvpn/$1.nordvpn.com.tcp443.ovpn"
+	if [ -f $FILE ]; then
+		sudo openvpn --config $FILE --auth-user-pass ~/etc/openvpn/pass &
+	else
+		echo "Try again"
+		echo "$(ls ~/etc/openvpn/$(echo $1 | cut -c -2)*)"
+
+	fi
+fi

@@ -1,0 +1,5 @@
+rofi.color-enabled: true
+rofi.color-window: argb:bb212121, argb:ff181818, #212121
+rofi.color-normal: argb:212121, #e5dbda, argb:212121, argb:20313737, #7bae5c
+rofi.padding: 400
+rofi.separator-style: none

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+list="$(bspc query -D)"
+while read msg
+do
+	id=$(echo $msg | cut -d ' ' -f 3)
+	n=$(echo "$list" | sed -n "/$id/=")
+	
+	ID=$(cat /tmp/.desktop_id)
+	if [ $ID -gt "0" ]
+	then
+		dunstify -t 10 -r $ID $n
+	else
+		dunstify -t 10 -p $n > /tmp/.desktop_id
+	fi
+done < <( bspc subscribe desktop )
+

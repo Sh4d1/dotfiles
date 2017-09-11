@@ -1,0 +1,10 @@
+#!/bin/bash
+
+vpn_symbol="\uf132 "
+if [ -e /var/run/vpnc.pid ]
+then
+  vpn="ENSIMAG"
+  echo -e $vpn_symbol $vpn
+else
+  echo " No VPN"
+fi

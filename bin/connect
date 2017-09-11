@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+	nmcli device wifi list
+	echo "Enter the SSID : "
+	read ssid
+	output=$(sudo nmcli device wifi connect $ssid)
+	if [[ $output == *"Error"* ]]; then
+		echo "Enter the password : "
+		read password
+		sudo nmcli device wifi connect $ssid password $password
+	fi
+	ssid=$(nmcli con show --active | tail +2 | cut -d ' ' -f 1)
+	if [[ $ssid == "" ]]; then
+		echo "Try again"
+	else
+		echo "Connected to $ssid"
+	fi
+else
+	sudo nmcli con up $1
+fi
+
+

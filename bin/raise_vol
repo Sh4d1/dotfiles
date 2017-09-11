@@ -1,0 +1,19 @@
+#!/bin/bash
+
+pactl set-sink-volume 0 +5%
+
+icon=""
+if [[ $(query_mute) == "true" ]]; then
+	icon=""
+fi
+
+TIMEOUT=20
+FILE=/tmp/.volume
+ID=$(cat $FILE)
+MSG="$icon $(query_vol)"
+if [ $ID -gt "0" ]
+then
+	dunstify -t $TIMEOUT -r $ID "$MSG"
+else
+	dunstify -t $TIMEOUT -p "$MSG" > $FILE
+fi
